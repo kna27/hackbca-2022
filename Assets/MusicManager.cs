@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!a.isPlaying) {
+        if(!a.isPlaying && !b.isPlaying) {
             b.Play();
         }
     }
