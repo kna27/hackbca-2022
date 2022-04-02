@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int money = 0;
-
+    public GameObject shop;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +18,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
+    public void ShowShop()
+    {
+        shop.SetActive(!shop.activeInHierarchy);
+    }
     // Reduces money by int i (if it won't result in a negative number)
-    void reduceMoney(int i){
+    public void reduceMoney(int i){
         if(i <= money){
             money -= i;
         } 
