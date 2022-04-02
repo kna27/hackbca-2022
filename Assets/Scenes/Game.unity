@@ -856,6 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 0
   shop: {fileID: 1257316032}
+  shopBtn: {fileID: 2144610811}
 --- !u!4 &432371867
 Transform:
   m_ObjectHideFlags: 0

@@ -86,8 +86,7 @@ public class Duck : MonoBehaviour
         if (!launched)
         {
             rb.simulated = true;
-            this.transform.parent = null;
-            Debug.Log("force added");
+            transform.parent = null;
             rb.AddRelativeForce(transform.up * launchSpeed);
             launched = true;
         }

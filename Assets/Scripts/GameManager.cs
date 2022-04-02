@@ -1,22 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public int money = 0;
     public GameObject shop;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public Button shopBtn;
+    private bool shopWasShown;
     void Update()
     {
-        
+        if (GameObject.Find("Duck").GetComponent<Duck>().launched)
+        {
+            shopWasShown = shop.activeInHierarchy;
+            shop.SetActive(false);
+            shopBtn.interactable = false;
+        }
+        else
+        {
+            if (shopWasShown)
+            {
+                shop.SetActive(true);
+                shopWasShown = false;
+            }
+            shopBtn.interactable = true;
+        }
     }
     public void ShowShop()
     {
