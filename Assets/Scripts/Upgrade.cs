@@ -18,6 +18,9 @@ public class Upgrade : MonoBehaviour
     public Button helmet2Button;
     public Button helmet3Button;
 
+    public Button cannon1Button;
+    public Button cannon2Button;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,7 @@ public class Upgrade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //TODO: make buttons not interactable if not enough money
     }
 
     public void UpgradeHelmet(int level)
@@ -82,7 +85,44 @@ public class Upgrade : MonoBehaviour
 
     public void UpgradeCannon(int level)
     {
+        int cost = 0;
+        int force = 0;
+        switch (level)
+        {
+            case 1:
+                cost = 100;
+                force = 3750;
+                break;
+            case 2:
+                cost = 250;
+                force = 4750;
+                break;
+            default:
+                cost = 0;
+                force = 2500;
+                break;
+        }
 
+        if (gm.money >= cost)
+        {
+            gm.reduceMoney(cost);
+            d.launchSpeed = force;
+            SpriteRenderer sr = d.transform.parent.GetComponent<SpriteRenderer>();
+            switch (level)
+            {
+                case 1:
+                    sr.sprite = cannon1;
+                    cannon1Button.interactable = false;
+                    break;
+                case 2:
+                    sr.sprite = cannon2;
+                    cannon1Button.interactable = false;
+                    cannon2Button.interactable = false;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public void UpgradeJetpack()
