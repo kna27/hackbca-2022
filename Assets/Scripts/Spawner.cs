@@ -13,10 +13,20 @@ public class Spawner : MonoBehaviour
     {
         rand = new System.Random();
         d = GameObject.Find("Duck").GetComponent<Duck>();
-        for (int i = 5; i < d.altLvl2; i += 20)
+        for (int i = 5; i < d.altLvl2; i += 10)
         {
             Vector3 pos = new Vector3(rand.Next(-15, -10), i, 0);
             Instantiate(altLvl1Enemies[rand.Next(0, altLvl1Enemies.Length)], pos, Quaternion.identity);
+        }
+        for (int i = d.altLvl2; i < d.altLvl3; i += 10)
+        {
+            Vector3 pos = new Vector3(rand.Next(-15, -10), i, 0);
+            Instantiate(altLvl2Enemies[rand.Next(0, altLvl2Enemies.Length)], pos, Quaternion.identity);
+        }
+        for (int i = d.altLvl3; i < 700; i += 10)
+        {
+            Vector3 pos = new Vector3(rand.Next(-15, -10), i, 0);
+            Instantiate(altLvl3Enemies[rand.Next(0, altLvl3Enemies.Length)], pos, Quaternion.identity);
         }
     }
 

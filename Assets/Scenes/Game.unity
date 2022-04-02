@@ -3083,10 +3083,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   altLvl1Enemies:
+  - {fileID: 3294592000760097028, guid: 9173ac2886f44014db37b5ad509663ee, type: 3}
   - {fileID: 3294592000760097028, guid: 52e982d6ac204f24aa37d3c1c0a92d4b, type: 3}
-  - {fileID: 3294592000760097028, guid: 52e982d6ac204f24aa37d3c1c0a92d4b, type: 3}
-  altLvl2Enemies: []
-  altLvl3Enemies: []
+  altLvl2Enemies:
+  - {fileID: 3294592000760097028, guid: 89b7dd0b398b8744ba518f81995dec7a, type: 3}
+  - {fileID: 3294592000760097028, guid: f7bb5ae9b67143d4f8b850cfc05aea7e, type: 3}
+  altLvl3Enemies:
+  - {fileID: 3294592000760097028, guid: d9dbd2f54b7ad4a4aae46f30d78d4c95, type: 3}
+  - {fileID: 3294592000760097028, guid: 763c867141fa9ab479131cec9627e7a8, type: 3}
 --- !u!1 &435201054
 GameObject:
   m_ObjectHideFlags: 0

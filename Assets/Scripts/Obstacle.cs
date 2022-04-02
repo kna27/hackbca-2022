@@ -47,7 +47,6 @@ public class Obstacle : MonoBehaviour
             {
                 Break();
             }
-            Debug.Log("a");
             audSrc.Play();
             OnHit();
         }
