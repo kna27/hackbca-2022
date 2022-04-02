@@ -70,6 +70,10 @@ public class Duck : MonoBehaviour
         if (launched && (rb.velocity.y < -30 || transform.position.y < 0.1f))
         {
             gm.money += maxAlt;
+            if (maxAlt > PlayerPrefs.GetInt("maxHeight"))
+            {
+                PlayerPrefs.SetInt("maxHeight", maxAlt);
+            }
             maxAlt = 0;
             launched = false;
             rb.simulated = false;
