@@ -17,6 +17,12 @@ public class Duck : MonoBehaviour
 
     private GameManager gm;
     private int maxAlt;
+
+    public int altLvl1 = 0;
+    public int altLvl2 = 200;
+    public int altLvl3 = 500;
+    public int space = 800;
+    public int currentAltLvl = 0;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -29,14 +35,36 @@ public class Duck : MonoBehaviour
     void Update()
     {
         moneyText.text = "Money: $" + gm.money;
-        if(!launched)
+        if (!launched)
         {
             altText.text = "Altitude: 0M";
         }
-        if(launched)
+        if (launched)
         {
             int oldAlt = (int)transform.position.y;
             altText.text = "Altitude: " + Mathf.RoundToInt(transform.position.y) + "M";
+            if (oldAlt >= altLvl2)
+            {
+                if (oldAlt >= altLvl3)
+                {
+                    if (oldAlt >= space)
+                    {
+                        currentAltLvl = 3;
+                    }
+                    else
+                    {
+                        currentAltLvl = 2;
+                    }
+                }
+                else
+                {
+                    currentAltLvl = 1;
+                }
+            }
+            else
+            {
+                currentAltLvl = 0;
+            }
             maxAlt = oldAlt > maxAlt ? oldAlt : maxAlt;
         }
         if (launched && rb.velocity.y < -30)
