@@ -21,7 +21,7 @@ public class Duck : MonoBehaviour
     public int altLvl1 = 0;
     public int altLvl2 = 200;
     public int altLvl3 = 500;
-    public int space = 800;
+    public int space = 650;
     public int currentAltLvl = 0;
     void Start()
     {
