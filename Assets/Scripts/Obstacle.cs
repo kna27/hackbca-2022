@@ -1,9 +1,9 @@
 using UnityEngine;
-using System.Collections;
 
 public class Obstacle : MonoBehaviour
 {
-    float moveSpeed;
+    public bool moves;
+    public float moveSpeed;
     public int stage;
     GameObject duck;
     AudioSource audSrc;
@@ -12,25 +12,29 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         audSrc = GetComponent<AudioSource>();
-        moveSpeed = Random.Range(-5, 5);
+        moveSpeed = Random.Range(0.25f, 3);
         duck = GameObject.Find("Duck");
     }
 
     void Update()
     {
-        transform.position = new Vector2(moveSpeed * Time.deltaTime, transform.position.y);
+        if (moves)
+        {
+            transform.position = new Vector2(transform.position.x + (moveSpeed * Time.deltaTime), transform.position.y);
+            if (transform.position.x > 20)
+            {
+                transform.position = new Vector2(-15, transform.position.y);
+            }
+        }
     }
 
     void OnHit()
     {
+        Debug.Log(stage + ": " + duck.GetComponent<Duck>().helmetLevel);
         if(stage <= duck.GetComponent<Duck>().helmetLevel)
         {
             // wait until sfx is done playing before destroy
             Break();
-        }
-        else
-        {
-            duck.GetComponent<Rigidbody2D>().velocity = new Vector2(duck.GetComponent<Rigidbody2D>().velocity.x * (1 - stage * 0.25f), duck.GetComponent<Rigidbody2D>().velocity.y * (1 - stage * 0.25f));
         }
     }
 
@@ -38,6 +42,12 @@ public class Obstacle : MonoBehaviour
     {
         if (col.transform.name == "Duck")
         {
+            Debug.Log(stage + ": " + duck.GetComponent<Duck>().helmetLevel);
+            if (stage <= duck.GetComponent<Duck>().helmetLevel)
+            {
+                Break();
+            }
+            Debug.Log("a");
             audSrc.Play();
             OnHit();
         }

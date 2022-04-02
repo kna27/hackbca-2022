@@ -14,12 +14,13 @@ public class Achievements : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Image img1 = GameObject.Find("Achievements/Canvas/Panel/Panel").GetComponent<Image>();
+       // Image img1 = GameObject.Find("Achievements/Canvas/Panel/Panel").GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Duck.maxAlt > 50){
             achv1 = 1;
         }
@@ -31,7 +32,7 @@ public class Achievements : MonoBehaviour
         }
         if(Duck.maxAlt > 650){
             achv4 = 1;
-        }
+        }*/
 
     }
 
