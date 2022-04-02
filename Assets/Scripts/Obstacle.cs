@@ -5,9 +5,12 @@ public class Obstacle : MonoBehaviour
     float moveSpeed;
     public int stage;
     GameObject duck;
+    AudioSource audSrc;
+
     // Start is called before the first frame update
     void Start()
     {
+        audSrc = GetComponent<AudioSource>();
         moveSpeed = Random.Range(-5, 5);
         duck = GameObject.Find("Duck");
     }
@@ -33,6 +36,7 @@ public class Obstacle : MonoBehaviour
     {
         if (col.transform.name == "Duck")
         {
+            audSrc.Play();
             OnHit();
         }
     }
