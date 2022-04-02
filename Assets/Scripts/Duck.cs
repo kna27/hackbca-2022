@@ -67,13 +67,14 @@ public class Duck : MonoBehaviour
             }
             maxAlt = oldAlt > maxAlt ? oldAlt : maxAlt;
         }
-        if (launched && rb.velocity.y < -30)
+        if (launched && (rb.velocity.y < -30 || transform.position.y < 0.1f))
         {
             gm.money += maxAlt;
             maxAlt = 0;
             launched = false;
             rb.simulated = false;
             rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0f;
             transform.parent = GameObject.Find("Cannon").transform;
             transform.localRotation = Quaternion.identity;
             transform.localPosition = new Vector3(0.022f, 1.731f, 0);
