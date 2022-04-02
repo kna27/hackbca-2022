@@ -16,7 +16,7 @@ public class Duck : MonoBehaviour
     public Text altText;
 
     private GameManager gm;
-    private int maxAlt;
+    public int maxAlt;
 
     public int altLvl1 = 0;
     public int altLvl2 = 200;
