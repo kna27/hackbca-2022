@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    private bool firstPlay = true;
     public AudioSource a;
     public AudioSource b;
     // Start is called before the first frame update
@@ -15,8 +16,9 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!a.isPlaying && !b.isPlaying) {
+        if(!a.isPlaying && firstPlay) {
             b.Play();
+            firstPlay = false;
         }
     }
 }
