@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Play()
     {
         SceneManager.LoadScene(1);
