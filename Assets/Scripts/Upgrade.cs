@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Upgrade : MonoBehaviour
 {
@@ -11,6 +10,13 @@ public class Upgrade : MonoBehaviour
     public Sprite helmet1;
     public Sprite helmet2;
     public Sprite helmet3;
+
+    public Sprite cannon1;
+    public Sprite cannon2;
+
+    public Button helmet1Button;
+    public Button helmet2Button;
+    public Button helmet3Button;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +38,13 @@ public class Upgrade : MonoBehaviour
         switch (level)
         {
             case 1:
-                cost = 500;
+                cost = 100;
                 break;
             case 2:
-                cost = 1000;
+                cost = 300;
                 break;
             case 3:
-                cost = 2000;
+                cost = 800;
                 break;
             default:
                 cost = 0;
@@ -50,14 +56,27 @@ public class Upgrade : MonoBehaviour
             gm.reduceMoney(cost);
             d.helmetLevel = level;
             SpriteRenderer sr = d.helmet.GetComponent<SpriteRenderer>();
-            sr.sprite = level switch
+            switch (level)
             {
-                0 => null,
-                1 => helmet1,
-                2 => helmet2,
-                3 => helmet3,
-                _ => null,
-            };
+                case 1:
+                    sr.sprite = helmet1;
+                    helmet1Button.interactable = false;
+                    break;
+                case 2:
+                    sr.sprite = helmet2;
+                    helmet1Button.interactable = false;
+                    helmet2Button.interactable = false;
+                    break;
+                case 3:
+                    sr.sprite = helmet3;
+                    helmet1Button.interactable = false;
+                    helmet2Button.interactable = false;
+                    helmet3Button.interactable = false;
+                    break;
+                default:
+                    sr.sprite = null;
+                    break;
+            }
         }
     }
 
@@ -68,9 +87,9 @@ public class Upgrade : MonoBehaviour
 
     public void UpgradeJetpack()
     {
-        if (gm.money >= 10000)
+        if (gm.money >= 1000)
         {
-            gm.reduceMoney(10000);
+            gm.reduceMoney(1000);
             d.jetpackUnlocked = true;
         }
     }
