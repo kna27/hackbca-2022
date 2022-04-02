@@ -48,7 +48,7 @@ public class Duck : MonoBehaviour
             rb.velocity = Vector2.zero;
             transform.parent = GameObject.Find("Cannon").transform;
             transform.localRotation = Quaternion.identity;
-            transform.localPosition = new Vector3(0.06f, 1.82f, 0);
+            transform.localPosition = new Vector3(0.022f, 1.731f, 0);
         }
     }
 
