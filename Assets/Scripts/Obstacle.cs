@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Obstacle : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class Obstacle : MonoBehaviour
     {
         if(stage <= duck.GetComponent<Duck>().helmetLevel)
         {
+            // wait until sfx is done playing before destroy
             Break();
         }
         else
